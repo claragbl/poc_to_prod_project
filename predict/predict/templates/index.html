@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Clara's POC to PROD</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 30%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        .textbox-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Clara's Poc to Prod website</h1>
+    <img src="{{ url_for('static', filename='photo_de_moi.HEIC') }}" alt="Clara's photo">
+
+    <div class="textbox-container">
+        <label for="user_text">Enter a sentence:</label>
+        <input type="text" id="user_text" name="user_text" required>
+        <button onclick="predict()">Predict</button>
+    </div>
+
+    <script>
+        function predict() {
+            var userText = document.getElementById("user_text").value;
+            window.location.href = "/predict?user_text=" + encodeURIComponent(userText);
+        }
+    </script>
+</body>
+</html>
